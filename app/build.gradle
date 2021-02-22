@@ -1,0 +1,87 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+apply plugin: "kotlin-kapt"
+
+apply plugin: 'dagger.hilt.android.plugin'
+
+apply plugin: 'kotlin-android-extensions'
+
+/**
+ * Tüm bağımlılıklar buradan yönetiliyor
+ */
+apply from: '../dependencies.gradle'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "30.0.2"
+
+    defaultConfig {
+        applicationId "com.hsmnzaydn.gunluk_burc_android"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+    viewBinding {
+        enabled = true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+        }
+        development {
+            debuggable true
+
+        }
+
+    }
+    androidExtensions {
+        experimental = true
+    }
+    productFlavors {
+        flavorDimensions "default"
+        beta {
+
+        }
+        prod {
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+
+    implementation core_common_dependencies.kotlin
+    implementation core_common_dependencies.ktx
+    implementation core_common_dependencies.constraintlayout
+    implementation core_common_dependencies.appCompat
+    implementation core_common_dependencies.retrofitGsonConverter
+    implementation core_common_dependencies.rxJava
+    implementation core_common_dependencies.rxAndroid
+    implementation core_common_dependencies.recylerView
+    implementation core_common_dependencies.hilt
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    kapt core_common_dependencies.hilt_kapt
+    implementation core_common_dependencies.hilt_viewModel
+    implementation core_common_dependencies.hilt_viewModel_kapt
+    implementation core_common_dependencies.material
+    implementation core_common_dependencies.fragment_ext
+    implementation core_common_dependencies.lifecycle_ext
+    implementation core_common_dependencies.appCompat_version
+
+    api project(':base_mvp')
+
+}

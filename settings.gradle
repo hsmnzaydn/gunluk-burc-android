@@ -1,0 +1,3 @@
+include ':base_mvp'
+include ':app'
+rootProject.name = "gunluk-burc-android"

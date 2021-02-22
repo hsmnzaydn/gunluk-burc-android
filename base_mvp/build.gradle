@@ -1,0 +1,82 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: "kotlin-kapt"
+apply plugin: 'dagger.hilt.android.plugin'
+
+/**
+ * Tüm bağımlılıklar buradan yönetiliyor
+ */
+apply from: '../dependencies.gradle'
+
+android {
+    compileSdkVersion core_common_dependencies.androidCompileSdkVersion
+    buildToolsVersion "29.0.2"
+
+    defaultConfig {
+        minSdkVersion core_common_dependencies.androidMinSdkVersion
+        targetSdkVersion core_common_dependencies.androidTargetSdkVersion
+        versionCode 1
+        versionName "1.0"
+
+
+    }
+
+
+        buildTypes {
+            release {
+                minifyEnabled false
+                proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+
+            }
+            development {
+                debuggable true
+
+            }
+
+        }
+
+
+    viewBinding {
+        enabled = true
+    }
+    flavorDimensions "default"
+    productFlavors {
+        flavorDimensions "default"
+        beta {
+            buildConfigField "String", "BASE_URL", '"https://gunluk-burc.herokuapp.com/api/"'
+
+        }
+        prod {
+            buildConfigField "String", "BASE_URL", '"https://gunluk-burc.herokuapp.com/api/"'
+        }
+    }
+
+
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation core_common_dependencies.kotlin
+    implementation core_common_dependencies.appCompat
+    implementation core_common_dependencies.recylerView
+
+    implementation core_common_dependencies.retrofit
+    implementation core_common_dependencies.retrofitGsonConverter
+    implementation core_common_dependencies.retrofitRxJavaAdapter
+    implementation core_common_dependencies.retrofitLogger
+    implementation core_common_dependencies.rxJava
+    implementation core_common_dependencies.rxAndroid
+    implementation core_common_dependencies.videoCache
+    implementation core_common_dependencies.material
+    implementation core_common_dependencies.glide
+    implementation core_common_dependencies.picasso
+    implementation core_common_dependencies.matisse
+    implementation core_common_dependencies.exoPlayer
+    implementation core_common_dependencies.hilt
+    kapt core_common_dependencies.hilt_kapt
+
+
+
+}
