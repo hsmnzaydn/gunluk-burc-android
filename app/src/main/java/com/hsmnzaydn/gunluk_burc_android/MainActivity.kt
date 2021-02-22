@@ -6,6 +6,7 @@ import com.hsmnzaydn.gunluk_burc_android.base.view.BaseActivity
 import com.hsmnzaydn.gunluk_burc_android.databinding.ActivityMainBinding
 import com.hsmnzaydn.gunluk_burc_android.fragment_controller.FragmentController
 import com.hsmnzaydn.gunluk_burc_android.fragment_controller.animation.Animation
+import com.hsmnzaydn.gunluk_burc_android.ui.splash.SplashFragment
 import com.hsmnzaydn.gunluk_burc_android.utility.NetworkConnectionListener
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -26,9 +27,9 @@ class MainActivity : BaseActivity() {
         navigator.apply {
             init(null)
             setAnimation(Animation.build { })
-         /*   startFragment(SplashFragment.newInstance()) {
+            startFragment(SplashFragment.newInstance()) {
                 history = false
-            }*/
+            }
         }
 
         networkConnectionListener()

@@ -51,6 +51,8 @@ abstract class BaseFragment<ViewModel : BaseViewModel, T : ViewBinding> : Fragme
         savedInstanceState: Bundle?
     ): View? {
         _binding = getViewBinding()
+        initUI(inflater, container, savedInstanceState)
+
         if (!runOnce) {
             runOnce = true
             runOnce()
