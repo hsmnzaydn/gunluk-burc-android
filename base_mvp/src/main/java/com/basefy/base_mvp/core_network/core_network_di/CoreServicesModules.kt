@@ -45,7 +45,6 @@ class CoreServicesModules {
                     var request: Request =
                         chain.request().newBuilder()
                             .addHeader("Authorization", localHelper.getAuthorizationToken()?:"")
-                            .addHeader("Accept", "/")
                             .addHeader("Accept-Encoding", "gzip, deflate")
                             .addHeader("User-Agent", "runscope/0.1")
                             .addHeader("Content-Type", "application/json")
@@ -60,7 +59,7 @@ class CoreServicesModules {
             .build()
         return Retrofit.Builder().baseUrl(BuildConfig.BASE_URL).client(okHttpClient)
             .addConverterFactory(GsonConverterFactory.create())
-            .addCallAdapterFactory(RxJava2CallAdapterFactory.create()).build()
+            .build()
 
     }
 

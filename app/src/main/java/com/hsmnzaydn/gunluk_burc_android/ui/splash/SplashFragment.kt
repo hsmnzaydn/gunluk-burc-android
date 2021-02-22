@@ -17,7 +17,7 @@ class SplashFragment : BaseFragment<SplashVM, FragmentSplashBinding>() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ) {
-        viewModel.showLoading()
+
     }
 
 
