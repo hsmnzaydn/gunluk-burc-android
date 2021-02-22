@@ -26,7 +26,9 @@ class MainActivity : BaseActivity() {
         navigator.apply {
             init(null)
             setAnimation(Animation.build { })
-
+         /*   startFragment(SplashFragment.newInstance()) {
+                history = false
+            }*/
         }
 
         networkConnectionListener()

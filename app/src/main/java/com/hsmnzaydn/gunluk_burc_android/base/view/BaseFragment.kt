@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
@@ -14,6 +15,7 @@ import com.hsmnzaydn.gunluk_burc_android.base.BaseViewModel
 import com.hsmnzaydn.gunluk_burc_android.base.SharedViewModel
 import com.hsmnzaydn.gunluk_burc_android.fragment_controller.FragmentController
 import com.hsmnzaydn.gunluk_burc_android.fragment_controller.FragmentOption
+import com.hsmnzaydn.gunluk_burc_android.utility.EventObserver
 
 
 abstract class BaseFragment<ViewModel : BaseViewModel, T : ViewBinding> : Fragment(){
@@ -49,7 +51,12 @@ abstract class BaseFragment<ViewModel : BaseViewModel, T : ViewBinding> : Fragme
         savedInstanceState: Bundle?
     ): View? {
         _binding = getViewBinding()
-
+        if (!runOnce) {
+            runOnce = true
+            runOnce()
+        } else {
+            againOpened()
+        }
 
         setOnClickListener()
         subscribeObservers()
@@ -70,8 +77,11 @@ abstract class BaseFragment<ViewModel : BaseViewModel, T : ViewBinding> : Fragme
         }
     }
 
+    open fun initUI(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?) {}
 
+    open fun runOnce() {}
 
+    open fun againOpened() {}
 
     fun mainNavigate(
         fragment: Fragment,
@@ -91,11 +101,28 @@ abstract class BaseFragment<ViewModel : BaseViewModel, T : ViewBinding> : Fragme
         navigator.navigateUp()
     }
 
-    open fun runOnce() {}
+
 
     open fun setOnClickListener() {}
 
-    open fun subscribeObservers() {}
+    open fun subscribeObservers() {
+        viewModel.errorHandle.observe(requireActivity(), EventObserver {
+
+
+        })
+
+
+        viewModel.showLoading.observe(requireActivity(), EventObserver {
+            Toast.makeText(requireActivity(),"Loading",Toast.LENGTH_LONG).show()
+        })
+
+
+        viewModel.hideLoading.observe(requireActivity(), EventObserver {
+
+
+        })
+
+    }
 
     open fun delay(duration: Long, run: () -> Unit) {
         Handler(Looper.getMainLooper()).postDelayed({

@@ -11,7 +11,7 @@ choose = input()
 
 
 
-basePackage = "Your Package"
+basePackage = "com.hsmnzaydn.gunluk_burc_android"
 
 if choose == "1":
     print("Feature adı nedir?\n")
