@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewbinding.ViewBinding
-import iyzico.merchant.payment.base.model.BaseEntity
+import com.hsmnzaydn.gunluk_burc_android.base.model.BaseEntity
 import kotlinx.android.extensions.LayoutContainer
 
 abstract class BaseViewHolder<M : BaseEntity> : RecyclerView.ViewHolder, LayoutContainer {

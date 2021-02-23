@@ -1,6 +1,7 @@
 package com.basefy.base_mvp.core_utility
 
 import android.app.Activity
+import android.content.Context
 import android.graphics.drawable.Drawable
 import android.view.View
 import android.widget.ImageView
@@ -29,7 +30,7 @@ class CoreImageloaderUtility {
          * @param imageView: Image linkinin set edildiği imageview
          */
         fun imageLoaderWithCache(
-            activity: Activity,
+            activity: Context,
             url: String? = "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             imageView: ImageView
         ) {
@@ -68,7 +69,7 @@ class CoreImageloaderUtility {
          * @param imageView: Image linkinin set edildiği imageview
          */
         fun imageLoaderWithCacheFit(
-            activity: Activity,
+            activity: Context,
             url: String? = "https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
             imageView: ImageView
         ) {

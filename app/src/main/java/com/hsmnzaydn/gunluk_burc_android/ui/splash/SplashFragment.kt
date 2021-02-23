@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.hsmnzaydn.gunluk_burc_android.databinding.FragmentSplashBinding
+import com.hsmnzaydn.gunluk_burc_android.ui.horoscopelist.HoroscopeListFragment
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -17,7 +18,7 @@ class SplashFragment : BaseFragment<SplashVM, FragmentSplashBinding>() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ) {
-
+        mainNavigate(HoroscopeListFragment.newInstance())
     }
 
 

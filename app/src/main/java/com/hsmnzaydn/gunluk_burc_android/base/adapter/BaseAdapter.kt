@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import iyzico.merchant.payment.base.model.BaseEntity
+import com.hsmnzaydn.gunluk_burc_android.base.model.BaseEntity
 import kotlin.properties.Delegates
 
 abstract class BaseAdapter<Data : BaseEntity> : ListAdapter<Data, BaseViewHolder<Data>>(

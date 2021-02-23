@@ -1,4 +1,4 @@
-package iyzico.merchant.payment.base.model
+package com.hsmnzaydn.gunluk_burc_android.base.model
 
 import androidx.annotation.LayoutRes
 

@@ -13,3 +13,5 @@
 .externalNativeBuild
 .cxx
 local.properties
+*.pyc
+app/src/main/java/com/hsmnzaydn/gunluk_burc_android/feature_mvp_mvvm_generator/feature_creator/__pycache__/

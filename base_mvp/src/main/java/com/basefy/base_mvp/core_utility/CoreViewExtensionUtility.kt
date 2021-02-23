@@ -39,15 +39,19 @@ import com.google.android.material.appbar.AppBarLayout
  * @param dividerItemDecoration: Seperator olarak verilen itemdir
  */
 @JvmOverloads
-fun <A : RecyclerView.Adapter<*>> A.onInit(
+fun <A : RecyclerView.Adapter<*>> A.vertical(
     recyclerView: RecyclerView,
-    layoutManager: RecyclerView.LayoutManager? = null,
     dividerItemDecoration: Int? = DividerItemDecoration.VERTICAL,
-    @DrawableRes separatorDrawable: Int? = null
+    @DrawableRes separatorDrawable: Int? = null,
+    bottomHandler: () -> Unit = {}
 ): A {
     recyclerView.run {
-        this.layoutManager = layoutManager ?: LinearLayoutManager(context)
-        adapter = this@onInit
+        this.layoutManager =
+            layoutManager ?: LinearLayoutManager(context, RecyclerView.VERTICAL, false)
+        this.pagenation {
+            bottomHandler.invoke()
+        }
+        adapter = this@vertical
         separatorDrawable?.let {
             addItemDecoration(
                 DividerItemDecoration(context, dividerItemDecoration!!).apply {
@@ -60,6 +64,7 @@ fun <A : RecyclerView.Adapter<*>> A.onInit(
     }
     return this
 }
+
 
 /**
  * Recylerview'ı adapterı initialize etmek için kullanılır(Grid)
