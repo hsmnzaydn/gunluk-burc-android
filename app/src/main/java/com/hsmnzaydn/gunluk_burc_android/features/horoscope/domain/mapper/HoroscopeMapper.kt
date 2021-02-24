@@ -2,7 +2,7 @@ import com.hsmnzaydn.gunluk_burc_android.features.horoscope.data.entities.Horosc
 import com.hsmnzaydn.gunluk_burc_android.features.horoscope.domain.entities.HoroscopeListItem
 
 fun HoroscopeResponse.toHoroscopeListItem(): HoroscopeListItem = HoroscopeListItem(
-    imagePath,
+    "https://"+imagePath,
     id,
     horoscopeName
 )
