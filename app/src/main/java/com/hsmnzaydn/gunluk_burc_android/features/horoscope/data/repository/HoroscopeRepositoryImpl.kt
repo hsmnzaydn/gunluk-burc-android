@@ -16,5 +16,11 @@ class HoroscopeRepositoryImpl(private val retrofit: Retrofit) : CoreBaseServices
         }
     }
 
+    override fun getHoroscopeDetail(id: String, callback: CoreServiceCallback<HoroscopeResponse>) {
+        getRequest(callback){
+            getHoroscopeServices().getHoroscopeDetail(id)
+        }
+    }
+
 
 }

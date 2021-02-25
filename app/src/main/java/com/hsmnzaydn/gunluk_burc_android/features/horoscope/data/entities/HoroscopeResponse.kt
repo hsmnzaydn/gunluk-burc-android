@@ -9,5 +9,7 @@ data class HoroscopeResponse(
     @SerializedName("id")
     var id: String,
     @SerializedName("imagePath")
-    var imagePath: String
+    var imagePath: String,
+    @SerializedName("description")
+    var descriptionResponse: List<DescriptionResponse>
 )

@@ -10,7 +10,9 @@ import com.basefy.base_mvp.core_utility.onInitGrid
 import com.basefy.base_mvp.core_utility.vertical
 import com.hsmnzaydn.gunluk_burc_android.base.model.BaseEntity
 import com.hsmnzaydn.gunluk_burc_android.databinding.FragmentHoroscopeListBinding
+import com.hsmnzaydn.gunluk_burc_android.features.horoscope.domain.entities.HoroscopeListItem
 import com.hsmnzaydn.gunluk_burc_android.ui.adapter.HoroscopeAdapter
+import com.hsmnzaydn.gunluk_burc_android.ui.horoscopedetail.HoroscopeDetailFragment
 
 @AndroidEntryPoint
 class HoroscopeListFragment : BaseFragment<HoroscopeListVM, FragmentHoroscopeListBinding>() {
@@ -26,7 +28,13 @@ class HoroscopeListFragment : BaseFragment<HoroscopeListVM, FragmentHoroscopeLis
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ) {
-        horoscopeAdapter.onInitGrid(binding.recyclerView,column = 3)
+        horoscopeAdapter.onInitGrid(binding.recyclerView,column = 3).onItemClick { baseEntity, positionItem, layoutId ->
+            when(layoutId){
+                HoroscopeAdapter.HoroscopeViewHolder.ITEM_TYPE -> {
+                    mainNavigate(HoroscopeDetailFragment.newInstance((baseEntity as HoroscopeListItem).horoscope.id))
+                }
+            }
+        }
     }
 
     private val horoscopeList = Observer<List<BaseEntity>> {

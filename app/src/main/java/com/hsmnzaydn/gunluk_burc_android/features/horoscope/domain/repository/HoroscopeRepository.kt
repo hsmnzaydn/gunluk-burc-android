@@ -5,4 +5,5 @@ import com.hsmnzaydn.gunluk_burc_android.features.horoscope.data.entities.Horosc
 
 interface HoroscopeRepository{
     fun getHoroscopes(time:Long,callback: CoreServiceCallback<List<HoroscopeResponse>>)
+    fun getHoroscopeDetail(id:String,callback: CoreServiceCallback<HoroscopeResponse>)
 }

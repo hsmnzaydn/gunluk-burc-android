@@ -3,6 +3,7 @@ package com.hsmnzaydn.gunluk_burc_android.ui.splash
 import com.hsmnzaydn.gunluk_burc_android.base.view.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 import android.os.Bundle
+import android.os.Handler
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.hsmnzaydn.gunluk_burc_android.databinding.FragmentSplashBinding
@@ -18,7 +19,9 @@ class SplashFragment : BaseFragment<SplashVM, FragmentSplashBinding>() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ) {
-        mainNavigate(HoroscopeListFragment.newInstance())
+        Handler().postDelayed({
+            mainNavigate(HoroscopeListFragment.newInstance())
+        }, 2000)
     }
 
 

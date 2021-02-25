@@ -79,7 +79,8 @@ ext {
     //appcompat
     appCompat_version = '1.1.0'
 
-
+    //Lottie
+    lottie = '3.6.0'
     core_common_dependencies = [
             androidMinSdkVersion    : androidMinSdkVersion,
             androidTargetSdkVersion : androidTargetSdkVersion,
@@ -109,7 +110,7 @@ ext {
 
             hilt_viewModel          : "androidx.hilt:hilt-lifecycle-viewmodel:$hilt_view_models",
             hilt_viewModel_kapt     : "androidx.hilt:hilt-compiler:$hilt_view_models",
-
+            lottie                  : "com.airbnb.android:lottie:$lottie",
             apollo_runtime          : "com.apollographql.apollo:apollo-runtime:$apollo_version",
             apollo_rxjava           : "com.apollographql.apollo:apollo-rx2-support:$apollo_version",
             pref_security           : "androidx.security:security-crypto:$pref_security",

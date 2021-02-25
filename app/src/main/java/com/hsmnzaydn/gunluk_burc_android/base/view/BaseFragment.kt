@@ -1,5 +1,6 @@
 package com.hsmnzaydn.gunluk_burc_android.base.view
 
+import android.app.Dialog
 import android.content.Context
 import android.os.Bundle
 import android.os.Handler
@@ -11,14 +12,17 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProviders
 import androidx.viewbinding.ViewBinding
 import com.hsmnzaydn.gunluk_burc_android.MainActivity
+import com.hsmnzaydn.gunluk_burc_android.R
 import com.hsmnzaydn.gunluk_burc_android.base.BaseViewModel
 import com.hsmnzaydn.gunluk_burc_android.base.SharedViewModel
 import com.hsmnzaydn.gunluk_burc_android.fragment_controller.FragmentController
 import com.hsmnzaydn.gunluk_burc_android.fragment_controller.FragmentOption
 import com.hsmnzaydn.gunluk_burc_android.utility.EventObserver
+import com.hsmnzaydn.gunluk_burc_android.utility.animationLoading
 
 
-abstract class BaseFragment<ViewModel : BaseViewModel, T : ViewBinding> : Fragment(){
+
+abstract class BaseFragment<ViewModel : BaseViewModel, T : ViewBinding> : Fragment() {
 
     private var baseActivity: BaseActivity? = null
 
@@ -27,6 +31,8 @@ abstract class BaseFragment<ViewModel : BaseViewModel, T : ViewBinding> : Fragme
     lateinit var navigator: FragmentController
 
     private var _binding: T? = null
+    private var dialog: Dialog? = null
+
 
     val binding get() = _binding!!
 
@@ -66,6 +72,7 @@ abstract class BaseFragment<ViewModel : BaseViewModel, T : ViewBinding> : Fragme
         return binding.root
     }
 
+
     override fun onAttach(context: Context) {
         super.onAttach(context)
         if (context is BaseActivity) {
@@ -84,6 +91,27 @@ abstract class BaseFragment<ViewModel : BaseViewModel, T : ViewBinding> : Fragme
     open fun runOnce() {}
 
     open fun againOpened() {}
+
+    fun showLoadingAnimation() {
+          if (dialog == null) {
+              loadingAnimation()
+              dialog?.show()
+          }
+
+
+    }
+
+    fun hideLoadingAnimation() {
+         dialog.let {
+             it?.dismiss()
+         }
+    }
+
+    private fun loadingAnimation() {
+        dialog = Dialog(requireContext(), R.style.CustomDialogTheme).animationLoading()
+    }
+
+
 
     fun mainNavigate(
         fragment: Fragment,
@@ -104,23 +132,22 @@ abstract class BaseFragment<ViewModel : BaseViewModel, T : ViewBinding> : Fragme
     }
 
 
-
     open fun setOnClickListener() {}
 
     open fun subscribeObservers() {
         viewModel.errorHandle.observe(requireActivity(), EventObserver {
-
+            hideLoadingAnimation()
 
         })
 
 
         viewModel.showLoading.observe(requireActivity(), EventObserver {
-            Toast.makeText(requireActivity(),"Loading",Toast.LENGTH_LONG).show()
+            showLoadingAnimation()
         })
 
 
         viewModel.hideLoading.observe(requireActivity(), EventObserver {
-
+            hideLoadingAnimation()
 
         })
 
@@ -136,7 +163,6 @@ abstract class BaseFragment<ViewModel : BaseViewModel, T : ViewBinding> : Fragme
         super.onDestroyView()
         _binding = null
     }
-
 
 
     fun sharedViewModel(): SharedViewModel =

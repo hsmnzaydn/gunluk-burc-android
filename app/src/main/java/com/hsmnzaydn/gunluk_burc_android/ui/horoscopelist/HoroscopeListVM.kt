@@ -26,6 +26,7 @@ private val horoscopeUseCase: HoroscopeUseCase
             override fun onSuccess(response: List<HoroscopeListItem>?) {
                 super.onSuccess(response)
                 horoscopeList.value = response
+                hideLoading.value = Event(true)
             }
         })
     }

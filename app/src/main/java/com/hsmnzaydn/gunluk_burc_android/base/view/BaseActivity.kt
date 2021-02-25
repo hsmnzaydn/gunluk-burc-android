@@ -29,6 +29,7 @@ abstract class BaseActivity : AppCompatActivity(),
         return false
     }
 
+
     override fun onRequestPermissionsResult(
         requestCode: Int,
         permissions: Array<out String>,

@@ -99,6 +99,7 @@ dependencies {
     implementation core_common_dependencies.fragment_ext
     implementation core_common_dependencies.lifecycle_ext
     implementation core_common_dependencies.appCompat_version
+    implementation core_common_dependencies.lottie
 
     api project(':base_mvp')
 
