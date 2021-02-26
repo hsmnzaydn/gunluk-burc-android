@@ -18,6 +18,16 @@
         android:theme="@style/Theme.Gunlukburcandroid"
 
         android:usesCleartextTraffic="true">
+
+        <service
+            android:name=".service.NotificationService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+                <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
+            </intent-filter>
+        </service>
+
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

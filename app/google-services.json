@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "829506120942",
+    "project_id": "gunluk-burc-bcac9",
+    "storage_bucket": "gunluk-burc-bcac9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:829506120942:android:a61a1978171b95160197ff",
+        "android_client_info": {
+          "package_name": "com.hsmnzaydn.gunluk_burc_android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "829506120942-b3qjsl38bp6pibs15ouvt9rr1q5o92kd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyARD869W1zbHeI2YWiPi83oOdVpUBwKwSo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "829506120942-b3qjsl38bp6pibs15ouvt9rr1q5o92kd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -7,7 +7,7 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: "kotlin-kapt"
 
 apply plugin: 'dagger.hilt.android.plugin'
-
+apply plugin: 'com.google.gms.google-services'
 /**
  * Tüm bağımlılıklar buradan yönetiliyor
  */
@@ -92,6 +92,7 @@ dependencies {
     implementation core_common_dependencies.recylerView
     implementation core_common_dependencies.hilt
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'com.google.firebase:firebase-messaging:21.0.1'
     kapt core_common_dependencies.hilt_kapt
     implementation core_common_dependencies.hilt_viewModel
     implementation core_common_dependencies.hilt_viewModel_kapt
@@ -100,7 +101,7 @@ dependencies {
     implementation core_common_dependencies.lifecycle_ext
     implementation core_common_dependencies.appCompat_version
     implementation core_common_dependencies.lottie
-
+    implementation platform('com.google.firebase:firebase-bom:26.5.0')
     api project(':base_mvp')
 
 }

@@ -29,6 +29,7 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:textStyle="bold"
+            android:fontFamily="@font/barlowbold"
             android:textSize="16sp"
             android:textColor="@color/purple_700"
             app:layout_constraintBottom_toBottomOf="parent"

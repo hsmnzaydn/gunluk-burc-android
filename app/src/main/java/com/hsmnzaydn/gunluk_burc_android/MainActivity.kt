@@ -2,6 +2,7 @@ package com.hsmnzaydn.gunluk_burc_android
 
 import android.os.Bundle
 import androidx.lifecycle.Observer
+import com.google.firebase.messaging.FirebaseMessaging
 import com.hsmnzaydn.gunluk_burc_android.base.view.BaseActivity
 import com.hsmnzaydn.gunluk_burc_android.databinding.ActivityMainBinding
 import com.hsmnzaydn.gunluk_burc_android.fragment_controller.FragmentController
@@ -33,7 +34,10 @@ class MainActivity : BaseActivity() {
         }
 
         networkConnectionListener()
+        FirebaseMessaging.getInstance().subscribeToTopic("gunluk")
+            .addOnCompleteListener { task ->
 
+            }
     }
 
     override fun onBackPressed() {

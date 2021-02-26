@@ -14,7 +14,6 @@
         <item name="android:autofilledHighlight" tools:targetApi="o">@android:color/transparent
         </item>
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
-        <item name="android:windowBackground">@drawable/splash_background</item>
 
         <!-- Customize your theme here. -->
     </style>
