@@ -1,6 +1,6 @@
 package com.hsmnzaydn.gunluk_burc_android.features.horoscope.domain.usecase
 
-import com.basefy.base_mvp.core_network.CoreServiceCallback
+import com.hsmnzaydn.base.core_network.CoreServiceCallback
 import com.hsmnzaydn.gunluk_burc_android.base.BaseResponseCallback
 import com.hsmnzaydn.gunluk_burc_android.features.horoscope.data.entities.HoroscopeResponse
 import com.hsmnzaydn.gunluk_burc_android.features.horoscope.domain.entities.DescriptionListItem

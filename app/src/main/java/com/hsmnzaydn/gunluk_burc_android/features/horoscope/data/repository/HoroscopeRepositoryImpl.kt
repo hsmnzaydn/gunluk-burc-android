@@ -1,7 +1,7 @@
 package com.hsmnzaydn.gunluk_burc_android.features.horoscope.data.repository
 
-import com.basefy.base_mvp.core_network.CoreBaseServicesImp
-import com.basefy.base_mvp.core_network.CoreServiceCallback
+import com.hsmnzaydn.base.core_network.CoreBaseServicesImp
+import com.hsmnzaydn.base.core_network.CoreServiceCallback
 import com.hsmnzaydn.gunluk_burc_android.features.horoscope.data.api.HoroscopeServices
 import com.hsmnzaydn.gunluk_burc_android.features.horoscope.data.entities.HoroscopeResponse
 import retrofit2.Retrofit

@@ -102,6 +102,6 @@ dependencies {
     implementation core_common_dependencies.appCompat_version
     implementation core_common_dependencies.lottie
     implementation platform('com.google.firebase:firebase-bom:26.5.0')
-    api project(':base_mvp')
+    api project(':base')
 
 }

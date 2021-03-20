@@ -1,7 +1,7 @@
 package com.hsmnzaydn.gunluk_burc_android.ui.adapter
 
 import android.view.ViewGroup
-import com.basefy.base_mvp.core_utility.CoreImageloaderUtility
+import com.hsmnzaydn.base.core_utility.CoreImageloaderUtility
 import com.hsmnzaydn.gunluk_burc_android.R
 import com.hsmnzaydn.gunluk_burc_android.base.adapter.BaseAdapter
 import com.hsmnzaydn.gunluk_burc_android.base.adapter.BaseViewHolder

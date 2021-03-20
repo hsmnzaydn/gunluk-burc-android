@@ -1,6 +1,6 @@
 package com.hsmnzaydn.gunluk_burc_android.base
 
-import com.basefy.base_mvp.core_network.CoreServiceCallback
+import com.hsmnzaydn.base.core_network.CoreServiceCallback
 
 
 abstract class BaseResponseCallback<R> constructor(

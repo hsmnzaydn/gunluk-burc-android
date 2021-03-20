@@ -6,8 +6,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.lifecycle.Observer
-import com.basefy.base_mvp.core_utility.onInitGrid
-import com.basefy.base_mvp.core_utility.vertical
+import com.hsmnzaydn.base.core_utility.onInitGrid
 import com.hsmnzaydn.gunluk_burc_android.base.model.BaseEntity
 import com.hsmnzaydn.gunluk_burc_android.databinding.FragmentHoroscopeListBinding
 import com.hsmnzaydn.gunluk_burc_android.features.horoscope.domain.entities.HoroscopeListItem
